@@ -24,12 +24,12 @@ def emotion_detector(text_to_analyze):
          # Check for 400 Bad Request
         if response.status_code == 400:
             error_res = {
-                "anger": 'None', 
-                "disgust": 'None', 
-                "fear": 'None', 
-                "joy": 'None', 
-                "sadness": 'None', 
-                "dominant_emotion":'None'
+                "anger": None, 
+                "disgust": None, 
+                "fear": None, 
+                "joy": None, 
+                "sadness": None, 
+                "dominant_emotion":None
                 }
             return  error_res
             
