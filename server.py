@@ -7,6 +7,10 @@ app = Flask("Emotion Detector App")
 def get_emotion():
     textToAnalyze = request.args.get('textToAnalyze')
     result = emotion_detector(textToAnalyze)
+
+    if result["dominant_emotion"] == "None":
+       return(" Invalid text! Please try again!.", 400)
+       
     return (result)
     
 
