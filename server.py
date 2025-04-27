@@ -14,7 +14,8 @@ def get_emotion():
     Analyzes the emotion of the text provided as a query parameter `textToAnalyze`.
 
     Returns:
-        The result of the emotion detection, which is a JSON-like response containing the detected emotion.
+        The result of the emotion detection, 
+        which is a JSON-like response containing the detected emotion.
     """
     text_to_analyze = request.args.get('textToAnalyze')
     result = emotion_detector(text_to_analyze)
