@@ -3,7 +3,7 @@ This module creates a Flask web application for detecting emotions in text.
 It provides an endpoint `/emotionDetector` for analyzing the emotion of the given text.
 """
 
-from flask import Flask,request
+from flask import Flask,request,render_template
 from EmotionDetection.emotion_detection import emotion_detector
 
 app = Flask("Emotion Detector App")
@@ -23,6 +23,14 @@ def get_emotion():
     if result["dominant_emotion"] == "None":
         return(" Invalid text! Please try again!.", 400)
     return result
+
+@app.route('/')
+def home():
+    """
+    Renders the home page (index.html) located in the templates folder.
+    """
+    return render_template('index.html')
+
 
 if __name__ == "__main__":
     app.run(debug=True)
