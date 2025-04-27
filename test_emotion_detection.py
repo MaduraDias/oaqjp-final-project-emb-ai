@@ -17,8 +17,7 @@ class TestEmotionDetector(unittest.TestCase):
             with self.subTest(text=text):
                 result = emotion_detector(text)
                 # Get the emotion with the highest score
-                detected_emotion = max(result, key=result.get)
-                self.assertEqual(detected_emotion, dominant_emotion)
+                self.assertEqual(result['dominant_emotion'], dominant_emotion)
 
 if __name__ == '__main__':
     unittest.main()
