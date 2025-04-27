@@ -22,7 +22,21 @@ def get_emotion():
 
     if result["dominant_emotion"] is None:
         return(" Invalid text! Please try again!.", 400)
-    return result
+
+    # Format the response
+   emotion_items = [f"'{emotion}': {score}" for emotion, score in result.items() if emotion != "dominant_emotion"]
+
+   if len(emotion_items) > 1:
+       # Use ", " for all items except the last, and "and " for the last item
+       emotion_scores = ", ".join(emotion_items[:-1]) + f", and {emotion_items[-1]}"
+   else:
+        # If there's only one item, no need for "and"
+       emotion_scores = emotion_items[0]
+       
+    dominant_emotion = result["dominant_emotion"]
+    response = f"For the given statement, the system response is {emotion_scores}. The dominant emotion is {dominant_emotion}."
+    
+    return response
 
 @app.route('/')
 def home():
